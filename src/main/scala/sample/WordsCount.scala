@@ -43,7 +43,7 @@ object WordsCount extends App {
     val producer = new KafkaProducer[String, String](props)
 
     while(true) {
-      val text = scala.io.StdIn.readLine("Enter some text: ")
+      val text = scala.io.StdIn.readLine("\n ====== \nEnter some text:  ")
       val record = new ProducerRecord(INPUT_TOPIC, text.hashCode.toString, text)
       producer.send(record)
     }
